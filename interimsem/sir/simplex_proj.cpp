@@ -1,9 +1,7 @@
 
-//  RevisedSimplex
+//  RevisedSimplex For operational research.
 //
-//  Created by Priyam shankar on aaj ke din.
-//  Copyright (c) 2015 Priyam shankar. All rights reserved.
-//
+//  Created by 20BCE10032,20BCE10047,20BCE10095,20BCE10097.....
 
 #include <iostream>
 #include <vector>
@@ -213,10 +211,10 @@ int main(int argc, const char * argv[]) {
     double A[m * (n + m)];
     
     // Column of labels and values of the basic variables in the basic feasible solution
-    variable b[m];//s1 s2 ke columns..
+    variable b[m];
     
     // Column of variable (only with labels, from 0 to m + n - 1) of the nonbasic variables
-    size_t nonbasic[n];//chota wala table andar..
+    size_t nonbasic[n];
     
     // Initialize columns for decision variables in matrix A
     // Initialize b, the array of basic variables
@@ -225,13 +223,13 @@ int main(int argc, const char * argv[]) {
         for (size_t col = 0; col <= n; ++col) {
             if (col == n) {
                 double bRow;
-                cout<<"<="<<endl;//ye rhs wala part hai equal to wala
+                cout<<"<="<<endl;
                 cin >> bRow;
-                variable bVar = {n + row, bRow};//ye samajh nahi aa rha
-                b[row] = bVar;//ye bhi samajh nahi aa rha..
+                variable bVar = {n + row, bRow};
+                b[row] = bVar;
             } else {
-                //cout<<"";
-                cin >> A[row * (m + n) + col];//constraint wala part..
+                
+                cin >> A[row * (m + n) + col];
             }
         }
     }
