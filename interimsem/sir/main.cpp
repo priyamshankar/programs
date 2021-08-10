@@ -2,8 +2,8 @@
 //  main.cpp
 //  RevisedSimplex
 //
-//  Created by Xuan Baihua on 10/18/15.
-//  Copyright (c) 2015 Xuan Baihua. All rights reserved.
+//  Created by Priyam shankar on aaj ke din.
+//  Copyright (c) 2015 Priyam shankar. All rights reserved.
 //
 
 #include <iostream>
@@ -191,7 +191,6 @@ int main(int argc, const char * argv[]) {
     // the number of variables
     cout<<"enter the no. of constraint and no. of variable:"<<endl;
     cin >> m >> n;
-    
     // Coefficients in the objective function
     double objFuncCoeff[n + m];//to decide the size of array
 
@@ -200,13 +199,13 @@ int main(int argc, const char * argv[]) {
     // Read in the coefficients in the objective function
     cout<<"enter the obj function coeff."<<endl;
     for (size_t col = 0; col < n; ++col) {
-        cout<<"obj function"<<col<<":"<<endl;
+        cout<<"obj function"<<col+1<<":"<<endl;
         
         cin >> objFuncCoeff[col];
     }
     
     // Populate the rest of C to be 0
-    for (size_t col = n; col < m + n; ++col) {
+    for (size_t col = n; col < m + n; ++col) {//slack variable like s1 s2 s3.
         objFuncCoeff[col] = 0.0;
     }
     
@@ -215,10 +214,10 @@ int main(int argc, const char * argv[]) {
     double A[m * (n + m)];
     
     // Column of labels and values of the basic variables in the basic feasible solution
-    variable b[m];
+    variable b[m];//s1 s2 ke columns..
     
     // Column of variable (only with labels, from 0 to m + n - 1) of the nonbasic variables
-    size_t nonbasic[n];
+    size_t nonbasic[n];//chota wala table andar..
     
     // Initialize columns for decision variables in matrix A
     // Initialize b, the array of basic variables
@@ -226,11 +225,13 @@ int main(int argc, const char * argv[]) {
         for (size_t col = 0; col <= n; ++col) {
             if (col == n) {
                 double bRow;
+                cout<<"<="<<endl;//ye rhs wala part hai equal to wala
                 cin >> bRow;
-                variable bVar = {n + row, bRow};
-                b[row] = bVar;
+                variable bVar = {n + row, bRow};//ye samajh nahi aa rha
+                b[row] = bVar;//ye bhi samajh nahi aa rha..
             } else {
-                cin >> A[row * (m + n) + col];
+                //cout<<"";
+                cin >> A[row * (m + n) + col];//constraint wala part..
             }
         }
     }
@@ -241,7 +242,9 @@ int main(int argc, const char * argv[]) {
         for (size_t col = 0; col < m; ++col) {
             if (col != row) {
                 A[base + col] = 0.0;
-            } else {
+            }
+            else
+            {
                 A[base + col] = 1.0;
             }
         }
@@ -459,7 +462,7 @@ int main(int argc, const char * argv[]) {
                 printFamilyOfSolutions(b, nonbasic, d, largestCoeff, enteringLabel, z);
                 return 0;
             }
-            
+
             // there is at least one ratio computed, print out the ratio(s)
             // and choose the row corresponding to the smallest ratio to leave
             printf("ratio: ");
