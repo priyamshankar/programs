@@ -1,5 +1,4 @@
-//
-//  main.cpp
+
 //  RevisedSimplex
 //
 //  Created by Priyam shankar on aaj ke din.
@@ -222,6 +221,7 @@ int main(int argc, const char * argv[]) {
     // Initialize columns for decision variables in matrix A
     // Initialize b, the array of basic variables
     for (size_t row = 0; row < m; ++row) {
+        cout<<"enter constraint no. "<<row+1<<endl;
         for (size_t col = 0; col <= n; ++col) {
             if (col == n) {
                 double bRow;
@@ -317,10 +317,10 @@ int main(int argc, const char * argv[]) {
         }
         
         // print out solved y
-        printf("y = ");
+        //printf("y = ");
         
         for (auto iter = y.cbegin(); iter != y.cend(); ++iter) {
-            printf("%10.3f ", *iter);
+            //printf("%10.3f ", *iter);
         }
         
         printf("\n");
@@ -336,7 +336,7 @@ int main(int argc, const char * argv[]) {
         double largestCoeff = -1.0;
         
         // print cnbar
-        printf("cnbar: ");
+        printf("Xb: ");
         
         for (size_t i = 0; i < n; ++i) {
             size_t varLabel = nonbasic[i];
