@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    char enc[] = { ' ',
+    char enc[] = { '*',
                        'a',
                        'b',
                        'c',
