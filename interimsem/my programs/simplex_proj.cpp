@@ -56,15 +56,15 @@ void printLPInfo(double objFuncCoeff[], variable b[], double *matrix) {
         printf("%10.3f ", objFuncCoeff[i]);
     }
     
-    printf("\nb = ");
+    printf("\nb = ");//b is rhs of the constraint.
 
     for (size_t i = 0; i < m; ++i) {
         printf("%10.3f ", b[i].value);
     }
 
-    printf("\nA = \n");
+    printf("\nA = \n");//a is the value of constraint.
     
-    printMatrix(matrix, m, n + m);
+    printMatrix(matrix, m, n + m);//m and n are no. of constraint and no. of variable.
 };
 
 // print out basic and non-basic variables for each iteration
@@ -127,7 +127,8 @@ void printFinalVariables(variable b[], size_t nonbasic[]) {
 }
 
 // function to print out the family of solutions when the LP is found to be unbounded
-void printFamilyOfSolutions(variable b[], size_t nonbasic[], vector<double> d, double largestCoeff, size_t enteringLabel, double z) {
+void printFamilyOfSolutions(variable b[], size_t nonbasic[], vector<double> d, double largestCoeff, size_t enteringLabel, double z) 
+{
     // in order to print out variable information in their natural order
     // we need to remember which row a basic variable locates in the basis
     // as to correspond it to the correct row in the entering variable's column in the dictionary
@@ -178,7 +179,7 @@ void printFamilyOfSolutions(variable b[], size_t nonbasic[], vector<double> d, d
 
 // a function for sorting variables in a vector
 // into descending order
-bool mComparator(variable v1, variable v2) {
+bool mComparator(variable v1, variable v2) {//minimum ratio
     return v1.value > v2.value;
 }
 
@@ -213,13 +214,12 @@ int main(int argc, const char * argv[]) {
     // Column of labels and values of the basic variables in the basic feasible solution
     variable b[m];
     
-    // Column of variable (only with labels, from 0 to m + n - 1) of the nonbasic variables
     size_t nonbasic[n];
     
     // Initialize columns for decision variables in matrix A
     // Initialize b, the array of basic variables
     for (size_t row = 0; row < m; ++row) {
-        cout<<"enter constraint no. "<<row+1<<endl;
+        cout<<"enter constraint no. "<<row+1<<endl;//taking the value of constraint
         for (size_t col = 0; col <= n; ++col) {
             if (col == n) {
                 double bRow;
@@ -233,11 +233,11 @@ int main(int argc, const char * argv[]) {
             }
         }
     }
-    
+                                                                                
     // Initialize columns for slack variables in matrix A
     for (size_t row = 0; row < m; ++row) {
         size_t base = (m + n) * row + n;
-        for (size_t col = 0; col < m; ++col) {
+        for (size_t col = 0; col < m; ++col) {                      
             if (col != row) {
                 A[base + col] = 0.0;
             }
@@ -277,7 +277,7 @@ int main(int argc, const char * argv[]) {
     // Initial basic solution is feasible, now proceed with the Simplex Method
     
     // A counter to remember the current iteration number
-    size_t counter = 1;
+    size_t counter = 1;             //iteration no.
     
     // An array of eta matrices representing previous pivots
     vector<eta> pivots{};
@@ -293,13 +293,13 @@ int main(int argc, const char * argv[]) {
         vector<double> y(m);
         
         // initialize y to be Cb
-        for (size_t row = 0; row < m; ++row) {
+        for (size_t row = 0; row < m; ++row) {//value of cb to be feed.
             variable v = b[row];
             y[row] = objFuncCoeff[v.label];
         }
         
         // solving y in yB = Cb
-        for (auto rIter = pivots.crbegin(); rIter != pivots.crend(); ++rIter) {
+        for (auto rIter = pivots.crbegin(); rIter != pivots.crend(); ++rIter) { // solving y in yB = Cb
             eta pivot = *rIter;
             size_t colToChange = pivot.col;
             double yOriginal = y[colToChange];
@@ -342,7 +342,7 @@ int main(int argc, const char * argv[]) {
             double yai = 0.0;
             
             for (size_t yIndex = 0; yIndex < m; ++yIndex) {
-                yai += y[yIndex] * A[yIndex * (m + n) + varLabel];
+                yai += y[yIndex] * A[yIndex * (m + n) + varLabel];//minimum ratio calculation
             }
             
             double cnbar = cni - yai;
@@ -367,7 +367,7 @@ int main(int argc, const char * argv[]) {
         
         printf("\n");
         
-        // If the vector cnbars is empty, then there are no candidates for the entering variable
+        // If the vector min.ratio is empty, then there are no candidates for the entering variable
         
         if (cnbars.size() == 0) {
             printf("\nNo entering var. Optimal value of %5.3f has been reached.\n", z);
