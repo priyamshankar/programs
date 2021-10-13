@@ -43,11 +43,13 @@ int main()
         
 
         int n;               
-        cout << "Enter the length of the password to be encrypted\n";
-        cin >> n;
-        int mat2[n];
-        char password[n];
+        // cin >> n;
+        cout << "Enter the password to be encrypted\n";
+        string password;
         cin >> password;
+        n=password.size();
+        // cout<<n;
+        int mat2[n];
         int i, j, k;
         k = -1;
         for (i = 0; i < n; i++)
