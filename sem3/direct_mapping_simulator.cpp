@@ -1,5 +1,8 @@
 #include <iostream>
 using namespace std;
+void cache_size(int size,int input){
+    size==input;
+}
 void display_cache(int cache_arr[], int cache_block_size)
 {
     int i;
@@ -54,34 +57,37 @@ void fetch(int cache_arr[], int ram_arr[], int cache_block_size)
 
 int main()
 {
-    int cache_block_size = 10;
+    int cache_block_size=32;
+    int* size;
+    size = &cache_block_size;
+
     int cache_arr[cache_block_size];
     int ram_arr[cache_block_size * cache_block_size];
     cout << endl
          << endl
-         << "                        ****The default cache size is 10****" << endl
+         << "                        ****The default cache size is 32****" << endl
          << endl;
     cout << "To change the default size press **1**.....To continue with the default values press **2**:-->   ";
     int toggle;
     cin >> toggle;
-    switch (toggle)
+    if (toggle==2)
     {
-    case 2:
+    
         cout << "\n The default lines in the cache are : ";
         cache_values(cache_block_size, cache_arr, ram_arr);
-        break;
-    case 1:
+    }
+    if (toggle==1){
         cout << endl
              << endl
              << "Enter the no. of blocks:-->  ";
+             
         cin >> cache_block_size;
         cout << endl
              << "The updated cache blocks are:--";
         cache_values(cache_block_size, cache_arr, ram_arr);
-
-    default:
-        break;
     }
+   
+    // cout<<*size<<cache_block_size;
     int toggle2=1;
     while (toggle2 !=2)
     {
