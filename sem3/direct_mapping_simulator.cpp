@@ -40,6 +40,7 @@ public:
         cout << endl
              << endl
              << "               *****";
+             cout << "\n     " <<"Tag bit"<< "   " << "r" << "     " << "wordsize";
         for (i = 0; i < cache_block_size; i++)
         {
             cout << endl;
