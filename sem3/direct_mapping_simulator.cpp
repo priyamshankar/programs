@@ -14,41 +14,46 @@ class direct_mapping
 public:
     void data_input()
     {
-        cache_block_size=100;
+        cache_block_size = 100;
         cout << endl
              << endl
              << "****Enter the size of the cache in KB : ";
-        cout << "****";
         cin >> cache_block_size;
         cache_block_size = (log(cache_block_size) / log(2)) + 10;
         cout << endl
              << "****Enter the size of main memory in MB : ";
         cin >> ram_size;
-        cout << "****";
         ram_size = (log(ram_size) / log(2)) + 20;
         cout << endl
              << "****Enter the word size Bytes : ";
         cin >> word_size;
-        cout << "****";
+
         word_size = (log(word_size) / log(2));
-        // ram_arr_size=pow(2,ram_size);
-        ram_arr_size=ram_size;
+        // ram_arr_size=pow(2,(ram_size)/1000);
+        ram_arr_size = 100000; //had to do this jugad :*(
+        // ram_arr_size=ram_size;
         cache_block_size = (cache_block_size - word_size);
     }
     void display_cache()
     {
         int i;
         cout << endl
+             << endl
              << "               *****";
         for (i = 0; i < cache_block_size; i++)
         {
-            cout << cache_arr[i] << "  ";
+            cout << endl;
+            cout << "        " << (cache_arr[i]) - i << "       " << i << "       " << word_size;
         }
-        cout << "*****";
+        // cout << "*****";
+        cout << endl
+             << "               *****" << endl
+             << endl;
     }
-    void cache_values( int ram_arr[])
+    void cache_values(int ram_arr[])
     {
         int i;
+        int k = 0;
         for (i = 0; i < cache_block_size; i++)
         {
             cache_arr[i] = i;
@@ -56,10 +61,11 @@ public:
         }
         for (i = 0; i < (ram_arr_size); i++)
         {
-            ram_arr[i] = i;
+            ram_arr[i] = k;
+            k++;
         }
     }
-    void load_from_ram( int ram_arr[])
+    void load_from_ram(int ram_arr[])
     {
         cout << endl
              << "\nLoading the ram blocks to the cache lines";
@@ -68,7 +74,7 @@ public:
         display_cache();
     }
 
-    void fetch( int ram_arr[])
+    void fetch(int ram_arr[])
     {
         cout << "\n Enter the block no. to fetch the data.";
         // int search;
@@ -77,19 +83,34 @@ public:
         mod_fnc = (search % cache_block_size);
         if (search == cache_arr[mod_fnc])
         {
-            cout << "\n           ****cache hit!!!****";
+            cout << endl
+                 << endl
+                 << "\n           ****cache hit!!!****";
             display_cache();
         }
         else
         {
-            cout << "\n           ****cache miss:(****";
-            load_from_ram( ram_arr);
+            cout << endl
+                 << endl
+                 << "\n           ****cache miss:(****";
+            load_from_ram(ram_arr);
         }
     }
 };
 int main()
 {
-    
+
+    cout << endl
+         << endl
+         << "		 ____  ___ ___   ____  ____ _____       		___  ___  ___        ____ " << endl
+         << "		|    |  |  |  \\ |     |       |		|\\  /|    /\\   |   ||   |  |  |\\   ||     " << endl
+         << "		|    |  |  |__| |___  |       |		| \\/ |   /__\\  |___||___|  |  | \\  ||  __ " << endl
+         << "		|    |  |  |\\   |     |       |		|    |  /    \\ |    | 	   |  |  \\ ||    |" << endl
+         << "		|____| _|_ | \\  |____ |____   |		|    | /      \\|    |	  _|_ |   \\||____|";
+    cout << endl
+         << endl
+         << endl
+         << endl;
     int ram_size;
     direct_mapping active;
     // int* size;
@@ -97,35 +118,40 @@ int main()
     active.data_input();
 
     int ram_arr[1000000];
+    active.cache_values(ram_arr);
     cout << endl
          << endl
-         << "                        ****The default cache size is 32****" << endl
+         << endl
+         << "                        ****The Simulator is ready to use****" << endl
          << endl;
-    cout << "To change the default size press **1**.....To continue with the default values press **2**:-->   ";
-    int toggle;
-    cin >> toggle;
-    if (toggle == 2)
-    {
+    // cout << "To change the default size press **1**.....To continue with the default values press **2**:-->   ";
+    // int toggle;
+    // cin >> toggle;
+    // if (toggle == 2)
+    // {
 
-        cout << "\n The default lines in the cache are : ";
-        active.cache_values(ram_arr);
-    }
-    if (toggle == 1)
-    {
-        cout << endl
-             << endl
-             << "Enter the no. of blocks:-->  ";
+    //     cout << "\n The default lines in the cache are : ";
+    //     active.cache_values(ram_arr);
+    // }
+    // if (toggle == 1)
+    // {
+    //     cout << endl
+    //          << endl
+    //          << "Enter the no. of blocks:-->  ";
 
-        
-        cout << endl
-             << "The updated cache blocks are:--";
-        active.cache_values( ram_arr);
-    }
+    //     cout << endl
+    //          << "The updated cache blocks are:--";
+    //     active.cache_values(ram_arr);
+    // }
     int toggle2 = 1;
-    while (toggle2 != 2)
+    while (toggle2 != 3)
     {
-        active.fetch( ram_arr);
-        cout << "\nPress 1 to continue or 2 to leave : ";
+        if (toggle2 ==2)
+        {
+            active.data_input();
+        }
+        active.fetch(ram_arr);
+        cout << "\nPress 1 to continue , 2 to reinsert the data and  3 to leave : ";
         cin >> toggle2;
     }
     return 0;
