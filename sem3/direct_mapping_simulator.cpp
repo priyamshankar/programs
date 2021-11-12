@@ -40,7 +40,12 @@ public:
         cout << endl
              << endl
              << "               *****";
-             cout << "\n     " <<"Tag bit"<< "   " << "r" << "     " << "wordsize";
+        cout << "\n     "
+             << "Tag bit"
+             << "   "
+             << "r"
+             << "     "
+             << "wordsize";
         for (i = 0; i < cache_block_size; i++)
         {
             cout << endl;
@@ -86,14 +91,16 @@ public:
         {
             cout << endl
                  << endl
-                 << "\n           ****cache hit!!!****";
+                 << "\n           ****cache hit!!!****" << endl
+                 << "\n The data of block " << search << " has been found in line no. " << mod_fnc << " of cache";
             display_cache();
         }
         else
         {
             cout << endl
                  << endl
-                 << "\n           ****cache miss:(****";
+                 << "\n           ****cache miss:(****" << endl
+                 << "\n The data of block " << search << " not found in cache but present in ram.\n \n           Direct mapping to line no. " << mod_fnc << " of cache";
             load_from_ram(ram_arr);
         }
     }
@@ -147,7 +154,7 @@ int main()
     int toggle2 = 1;
     while (toggle2 != 3)
     {
-        if (toggle2 ==2)
+        if (toggle2 == 2)
         {
             active.data_input();
         }
