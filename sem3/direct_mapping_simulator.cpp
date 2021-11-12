@@ -44,7 +44,7 @@ public:
         for (i = 0; i < cache_block_size; i++)
         {
             cout << endl;
-            cout << "        " << (cache_arr[i]) - i << "       " << i << "       " << word_size;
+            cout << "        " << (ram_size-word_size) - i << "       " << i << "       " << word_size;
         }
         // cout << "*****";
         cout << endl
