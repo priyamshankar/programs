@@ -132,25 +132,6 @@ int main()
          << endl
          << "                        ****The Simulator is ready to use****" << endl
          << endl;
-    // cout << "To change the default size press **1**.....To continue with the default values press **2**:-->   ";
-    // int toggle;
-    // cin >> toggle;
-    // if (toggle == 2)
-    // {
-
-    //     cout << "\n The default lines in the cache are : ";
-    //     active.cache_values(ram_arr);
-    // }
-    // if (toggle == 1)
-    // {
-    //     cout << endl
-    //          << endl
-    //          << "Enter the no. of blocks:-->  ";
-
-    //     cout << endl
-    //          << "The updated cache blocks are:--";
-    //     active.cache_values(ram_arr);
-    // }
     int toggle2 = 1;
     while (toggle2 != 3)
     {
