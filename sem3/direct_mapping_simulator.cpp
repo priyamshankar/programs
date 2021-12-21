@@ -30,7 +30,7 @@ public:
 
         word_size = (log(word_size) / log(2));
         // ram_arr_size=pow(2,(ram_size)/1000);
-        ram_arr_size = 100000; //had to do this jugad :*(
+        ram_arr_size = 100000; 
         // ram_arr_size=ram_size;
         cache_block_size = (cache_block_size - word_size);
     }
