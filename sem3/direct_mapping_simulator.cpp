@@ -14,7 +14,6 @@ class direct_mapping
 public:
     void data_input()
     {
-        // cache_block_size = 100;
         cout << endl
              << endl
              << "****Enter the size of the cache in KB : ";
@@ -56,7 +55,7 @@ public:
              << "               *****" << endl
              << endl;
     }
-    void cache_values(int ram_arr[])
+    void cache_values(int ram_arr[])     // one time display and ram init
     {
         int i;
         int k = 0;
