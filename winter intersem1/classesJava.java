@@ -16,9 +16,9 @@ class color {
             System.out.println("no valid color");
         }
     }
-    // color(int imput){
-    //     this.n=imput;
-    // }
+    color(int imput){
+        this.n=imput;
+    }
 }
 
 class pen extends color{
@@ -26,17 +26,18 @@ class pen extends color{
     void pencile(){
         colorIt();
     }
-    pen(int input){
-        this.n=input;
-    }
+    // pen(int input){
+    //     this.n=input;
+    // }
+   
 }
 
 public class classesJava {
     public static void main(String[] args) {
-        // color col= new color(2);
-        // col.colorIt();
-        pen pe=new pen(4);
-        pe.pencile();
+        color col= new color(2);
+        col.colorIt();
+        // pen pe=new pen(4);
+        // pe.pencile();
 
     }
 }
