@@ -1,3 +1,4 @@
+
 // import java.util.*;
 import java.lang.Math;
 
@@ -6,6 +7,7 @@ class ArmNum {
     protected int i;
     protected int sum;
     int temp;
+
     public void armstrong() {
         if (sum_pow() == n) {
             System.out.println("It is an armstrong no.");
@@ -36,6 +38,8 @@ class ArmNum {
 public class armstrong {
     public static void main(String[] args) {
         ArmNum initial = new ArmNum(371, 3);
+        ArmNum initial2=new ArmNum(254, 3);
+        initial2.armstrong();
         initial.armstrong();
     }
 }
