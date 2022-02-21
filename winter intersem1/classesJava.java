@@ -21,16 +21,16 @@ class color {
     }
 }
 
-class pen extends color{
-    protected int pencil;
-    void pencile(){
-        colorIt();
-    }
-    // pen(int input){
-    //     this.n=input;
-    // }
+// class pen extends color{
+//     protected int pencil;
+//     void pencile(){
+//         colorIt();
+//     }
+//     // pen(int input){
+//     //     this.n=input;
+//     // }
    
-}
+// }
 
 public class classesJava {
     public static void main(String[] args) {
