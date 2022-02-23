@@ -5,14 +5,16 @@ int factorial(int n){
         return 1;
     }
     return n*factorial(n-1);
+    // factorial(n-1);
+    // return n*(n-1);
 }
 
 int main(){
 
-    cout<<"enter the no.";
-    int n;
-    cin>>n;
-    int ans=factorial(n);
+    // cout<<"enter the no.";
+    // int n;
+    // cin>>n;
+    int ans=factorial(6);
     cout<<ans;
 
     return 0;
