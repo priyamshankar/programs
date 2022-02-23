@@ -13,20 +13,22 @@ bool sortCheck(int *arr, int size)
     }
     else
     {
-        return sortCheck(arr + 1, --size);
+        return sortCheck(++arr, --size);
     }
 }
 
 int main()
 {
-    int arr[] = {1, 2,3, 5, 6, 7, 8};
+    int arr[] = {1, 2, 3, 5, 6, 7, 8};
     // cout<<sortCheck(arr, 7);
-    
-    if (sortCheck(arr,7)){
-        cout<<"sorted";
+
+    if (sortCheck(arr, 7))
+    {
+        cout << "sorted";
     }
-    else{
-        cout<<"notsorted";
+    else
+    {
+        cout << "notsorted";
     }
     return 0;
 }
