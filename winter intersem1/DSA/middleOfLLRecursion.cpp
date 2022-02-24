@@ -86,19 +86,39 @@ void deleting(node *&head, int pos)
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% //
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% //
 
+int midLl(node *&count1, node *&count2)
+{
+    if (count2 == NULL || count2->next == NULL)
+    {
+        // return;
+        // count2->next->next;
+        return 0;
+    }
+    cout << count1->data << " " ;
+    // << count2->data;
+    midLl(count1->next, count2->next->next);
+    // return count1->data;
+    return count1->data;
+}
 
 int main()
 {
     node *head = NULL;
+    node *temp = NULL;
 
     // cout << node1->data << endl;
     // cout << node1->next << endl;
     // node node2=new node(23);
-    insertatHead(337, head);
-    insertatHead(336, head);
-    insertatTail(99, head);
-    insertatHead(35, head);
-    insertatHead(34, head);
+    // insertatHead(8, head);
+    insertatHead(7, head);
+    insertatHead(6, head);
+
+    insertatHead(5, head);
+    insertatHead(4, head);
+    // insertatTail(99, head);
+    insertatHead(3, head);
+    insertatHead(2, head);
+    insertatHead(1, head);
 
     // displayLl(head);
 
@@ -107,9 +127,11 @@ int main()
     // displayLl(head);
 
     // deleting(head, 0);
-
+    // int count1 = 0;
+    node *count1 = head;
+    node *count2 = head;
     displayLl(head);
-
+    cout << midLl(count1, count2);
 
     return 0;
 }
