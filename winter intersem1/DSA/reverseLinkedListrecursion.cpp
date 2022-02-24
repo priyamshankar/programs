@@ -82,6 +82,24 @@ void deleting(node *&head, int pos)
 }
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% //
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% //
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% //
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% //
+
+void revRec(node *&current,
+            node *&prev,
+            node *&head)
+{
+    if (current == NULL)
+    {
+        head = prev;
+        return;
+    }
+
+    node* forward = current->next;
+    revRec(forward, current, head);
+    current->next = prev;
+}
 
 void reverse(node *&head)
 {
@@ -92,14 +110,14 @@ void reverse(node *&head)
     node *current = head;
     node *prev = NULL;
     node *forward = NULL;
-    while (current != NULL)
-    {
-        forward = current->next;
-        current->next = prev;
-        prev = current;
-        current = forward;
-    }
-    head=prev;
+    // while (current != NULL)
+    // {
+    //     forward = current->next;
+    //     current->next = prev;
+    //     prev = current;
+    //     current = forward;
+    // }
+    revRec(current, prev, head);
 }
 
 int main()
