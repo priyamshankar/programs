@@ -9,7 +9,6 @@ void substr(string s, string ansStr)
         cout << ansStr<<endl;
         return;
     }
-
     substr(s.substr(1), ansStr);
     substr(s.substr(1), ansStr + s[0]);
 }
