@@ -89,7 +89,7 @@ void deleting(node *&head, int pos)
 
 void removeDuplicate(node *&head,node* temp1,node* temp2)
 {
-    if (temp1->next == NULL)
+    if (head->next == NULL)
     {
         return;
     }
