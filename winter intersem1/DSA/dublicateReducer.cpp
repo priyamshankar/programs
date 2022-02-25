@@ -1,38 +1,29 @@
 #include <iostream>
 using namespace std;
 
-void duplicateChecker(string &s, int i, char c, int count)
+string duplicateChecker(string s)
 {
-    if (i >= 14)
+    if (s.length() == 0)
     {
-        cout<<endl<<s;
-        return;
+        return "";
     }
-    if (c == s[i])
+    char ch = s[0];
+    string ans = duplicateChecker(s.substr(1));
+    if (ch == ans[0])
     {
-        // count++;
-        // s.substr(i,1);
-        // cout<<"23";
+        // cout<<ans<<endl;
+        return ans;
     }
     else
     {
-        count++;
-        c = s[i];
-        cout<<c;
-        // s.substr();
+        // cout<<ch<<ans<<endl;
+        return ch+ans;
     }
-    duplicateChecker(s, i + 1, c, count);
-    // cout<<s;
 }
 
 int main()
 {
-    string s = "aaabaabbbccccd";
-    int i = 0;
-    char check='h';
-    int count;
-    cout<<s<<endl;
-    duplicateChecker(s, i, check, count);
-    cout<<endl<<s<<endl;
+    string s = "aaaabbaacdde";
+    cout<<duplicateChecker(s);
     return 0;
 }
