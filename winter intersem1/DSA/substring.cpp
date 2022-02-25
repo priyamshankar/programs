@@ -7,6 +7,7 @@ void substr(string s, string ansStr)
     if (s.length() == 0)
     {
         cout << ansStr<<endl;
+        // cout<<'2'<<endl;
         return;
     }
     substr(s.substr(1), ansStr);
@@ -15,7 +16,7 @@ void substr(string s, string ansStr)
 
 int main()
 {
-    string s = {'A', 'B', 'C'};
+    string s = {'A', 'B', 'C','D','E'};
     string ansStr = {};
     substr(s, ansStr);
     return 0;
