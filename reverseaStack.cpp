@@ -14,7 +14,8 @@ void stackRev(stack<int> &s)
     s.pop();
     stackRev(s);
     s.push(ch);
-    cout<<s.top()<<endl;
+
+
 }
 
 int main()
