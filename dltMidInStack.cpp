@@ -11,7 +11,7 @@ void stackMid(stack<int> &s, int count, int size)
     }
     int track = s.top();
     s.pop();
-    stackMid(s,count+1,size);
+    stackMid(s, count + 1, size);
     s.push(track);
 }
 
@@ -27,5 +27,21 @@ int main()
     s.push(54);
     s.push(3);
     stackMid(s, 0, 8);
+    cout << s.top() << endl;
+    s.pop();
+    cout << s.top() << endl;
+    s.pop();
+    cout << s.top() << endl;
+    s.pop();
+    cout << s.top() << endl;
+    s.pop();
+    cout << s.top() << endl;
+    s.pop();
+    cout << s.top() << endl;
+    s.pop();
+    cout << s.top() << endl;
+    
+
+
     return 0;
 }
