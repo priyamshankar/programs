@@ -153,10 +153,10 @@ int main()
     // cout << node1->data << endl;
     // cout << node1->next << endl;
     // node node2=new node(23);
-    insertatHead(0, head);
+    insertatHead(2, head);
     insertatHead(1, head);
     insertatHead(0, head);
-    insertatHead(2, head);
+    insertatHead(0, head);
     insertatHead(2, head);
     insertatHead(2, head);
     insertatHead(1, head);
