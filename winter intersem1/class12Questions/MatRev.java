@@ -20,6 +20,7 @@ class MatRev {
                 arr[i][j] = sc.nextInt();
             }
         }
+        sc.close();
     }
 
     public int reverse(int x) {
@@ -60,5 +61,6 @@ System.out.println("Original Matrix is::");
 obj1.show();
 System.out.println("Matrix with reversed elements");
 obj2.show();
+sc.close();
 }
 }
