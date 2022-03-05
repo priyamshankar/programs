@@ -14,6 +14,7 @@ class Rearrange {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the word:");
         wrd = sc.next();
+        sc.close();
     }
 
     public void freq_vow_con() {
