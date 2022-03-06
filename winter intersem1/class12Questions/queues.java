@@ -68,7 +68,7 @@ class queues {
         q.display();
         q.addele(67);
         q.addele(77);
-        q.addele(79);
+        q.addele(793);
         // q.addele(79);
         q.display();
 
