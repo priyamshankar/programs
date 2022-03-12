@@ -20,7 +20,7 @@ void binarySort(int arr[], int key)
         }
         else if (arr[mid] == key)
         {
-            cout << "content matched at "<<mid+1;
+            cout << "content matched at " << mid + 1;
             break;
         }
         else
@@ -34,7 +34,7 @@ void binarySort(int arr[], int key)
 
 int main()
 {
-    int arr[] = {1,2,3,4,5,6,7,8,9,10};
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     binarySort(arr, 8);
     return 0;
 }
