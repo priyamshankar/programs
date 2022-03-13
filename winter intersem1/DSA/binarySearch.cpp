@@ -1,3 +1,6 @@
+
+//binary search
+
 #include <iostream>
 using namespace std;
 void binarySort(int arr[], int key)
