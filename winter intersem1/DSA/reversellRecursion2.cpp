@@ -88,7 +88,7 @@ void deleting(node *&head, int pos)
 
 void revRec(node *&head)
 {
-    if (head == NULL ||head->next==NULL)
+    if (head == NULL || head->next == NULL)
     {
         // head->next=head;
         return;
