@@ -82,3 +82,9 @@ int main()
     return 0;
 }
 // 1 2 3 -1 -1 4 -1 -1 5 -1 -1
+
+// inorder ----- LNR 
+
+//Preorder ----- NLR
+
+//PostOrder ---- LRN
