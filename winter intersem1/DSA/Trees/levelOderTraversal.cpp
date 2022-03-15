@@ -21,11 +21,18 @@ void insertData(node *&root)
 {
     int data;
     cin >> data;
-    root = new node(data);
+    // if (data == -1)
+    // {
+    //     root = new node(NULL);
+    // }
+    // else
+    // {
+    // }
     if (data == -1)
     {
         return;
     }
+    root = new node(data);
     cout << "enter the data in the left node\n";
     insertData(root->left);
     cout << "enter the data in the right node\n";
@@ -40,10 +47,7 @@ void levelOrderTraversal(node *&root)
     while (!q.empty())
     {
         node *temp = q.front();
-        if (q.front()->data != -1)
-        {
-            cout << q.front()->data;
-        }
+        cout << q.front()->data << " ";
         q.pop();
         if (temp->left != NULL)
         {
