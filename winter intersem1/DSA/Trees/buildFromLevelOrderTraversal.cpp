@@ -36,10 +36,9 @@ void levelOrderTraversal(node *root)
     queue<node *> q;
     q.push(root);
     q.push(NULL);
-    node *temp;
     while (!q.empty())
     {
-        temp = q.front();
+        node *temp = q.front();
         q.pop();
 
         if (temp == NULL)
@@ -52,12 +51,12 @@ void levelOrderTraversal(node *root)
         }
         else
         {
-            cout << temp->data;
-            if (temp->left != NULL)
+            cout << temp->data << " ";
+            if (temp->left)
             {
                 q.push(temp->left);
             }
-            if (temp->right != NULL)
+            if (temp->right)
             {
                 q.push(temp->right);
             }
@@ -65,11 +64,62 @@ void levelOrderTraversal(node *root)
     }
 }
 
+void buildFromLevelOrderTraversal(node *root)
+{
+    queue<node *> q;
+    cout << "Enter the data of the root:";
+    int data;
+    cin >> data;
+    root = new node(data);
+    q.push(root);
+    while (!q.empty())
+    {
+        node *temp = q.front();
+        q.pop();
+
+        cout << "\nenter the left element " << temp->data;
+        int leftEl;
+        cin >> leftEl;
+        if (leftEl != -1)
+        {
+            temp->left = new node(leftEl);
+            q.push(temp->left);
+        }
+        cout << "\nenter the right element of " << temp->data;
+        int rightEl;
+        cin >> rightEl;
+        if (rightEl != -1)
+        {
+            temp->right = new node(rightEl);
+            q.push(temp->right);
+        }
+    }
+}
+
+node *display(node *&root)
+{
+    node *temp = root;
+    if (temp->data == -1)
+    {
+        return NULL;
+    }
+    cout<<temp->data<<" ";
+    cout<<"\nLeft of the data";
+    display(temp->left);
+    cout<<"\nRight of the data";
+    display(temp->right);
+    return root;
+}
+
 int main()
 {
-    cout << "enter the data";
+    // cout << "enter the data";
     node *root = NULL;
-    enterData(root);
-    levelOrderTraversal(root);
+    // enterData(root);
+    buildFromLevelOrderTraversal(root);
+    // levelOrderTraversal(root);
+    display(root);
     return 0;
 }
+
+// 1 2 3 -1 -1 4 -1 -1 5 -1 6 -1 -1
