@@ -117,9 +117,11 @@ int main()
     node *root = NULL;
     // enterData(root);
     buildFromLevelOrderTraversal(root);
-    // levelOrderTraversal(root);
-    display(root);
+    levelOrderTraversal(root);
+    // display(root);
     return 0;
 }
 
-// 1 2 3 -1 -1 4 -1 -1 5 -1 6 -1 -1
+//1 2 5 3 4 -1 -1 -1 -1 -1 -1
+
+//1 2 3 -1 -1 4 -1 -1 5 -1 -1
