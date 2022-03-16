@@ -48,3 +48,9 @@ int main()
     inorderTraversal(root);
     return 0;
 }
+
+// inorder ----- LNR 
+
+//Preorder ----- NLR
+
+//PostOrder ---- LRN
