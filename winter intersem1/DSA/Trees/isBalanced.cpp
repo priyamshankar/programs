@@ -61,7 +61,7 @@ bool isBalanced(node *&root)
         return false;
     }
 }
-
+// time complexity is only n
 pair<bool, int> isbalancedFast(node *&root)
 {
     if (root == NULL)
