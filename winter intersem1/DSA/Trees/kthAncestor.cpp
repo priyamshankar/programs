@@ -40,10 +40,10 @@ node *kthAncestor(node *root, int n1, int &k)
     {
         return NULL;
     }
-    if (k == 0)
-    {
-        return root;
-    }
+    // if (k == 0)
+    // {
+    //     return root;
+    // }
     if (root->data == n1)
     {
         return root;
