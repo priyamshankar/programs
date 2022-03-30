@@ -9,7 +9,7 @@ public:
     node *right;
     node(int data)
     {
-        data = this->data;
+        this->data = data;
         this->left = NULL;
         this->right = NULL;
     }
@@ -24,11 +24,11 @@ node *insertDataFunction(int data, node *&root)
     }
     if (data > root->data)
     {
-        insertDataFunction(data, root->right);
+        root->right = insertDataFunction(data, root->right);
     }
     else
     {
-        insertDataFunction(data, root->left);
+        root->left = insertDataFunction(data, root->left);
     }
     return root;
 }
@@ -40,7 +40,7 @@ void insertData(node *&root)
     while (data != -1)
     {
         cin >> data;
-        root = insertDataFunction(data, root); /* condition */
+        root = insertDataFunction(data, root);
     }
 }
 
@@ -81,6 +81,9 @@ int main()
 {
     node *root = NULL;
     insertData(root);
+    // cout << root->data;
     levelOrderTraversal(root);
     return 0;
 }
+
+// 10 8 15 32 16 14 9 7 -1
