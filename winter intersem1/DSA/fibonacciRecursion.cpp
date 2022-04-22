@@ -21,6 +21,11 @@
 //     return 0;
 // }
 
+
+//2nd approach
+
+
+
 #include <iostream>
 using namespace std;
 void fibonacci(int n, int n1, int n2)
