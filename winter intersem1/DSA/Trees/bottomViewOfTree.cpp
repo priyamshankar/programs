@@ -51,7 +51,7 @@ vector<int> topview(node *root)
         q.pop();
         node *firstnode = temp.first;
         int hd = temp.second;
-        topnodeview[hd] = firstnode->data;  //kust this is the difference from topview tree.
+        topnodeview[hd] = firstnode->data; // kust this is the difference from topview tree.
         if (firstnode->left)
         {
             q.push(make_pair(firstnode->left, hd - 1));

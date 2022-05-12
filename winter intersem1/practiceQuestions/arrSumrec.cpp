@@ -10,7 +10,6 @@ int sumup(int *arr, int size)
     }
     return arr[0] + sumup(++arr, --size);
 }
-
 int main()
 {
     cout << "funciton is here\n";

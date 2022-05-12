@@ -83,8 +83,8 @@ int main()
 }
 // 1 2 3 -1 -1 4 -1 -1 5 -1 -1
 
-// inorder ----- LNR 
+// inorder ----- LNR
 
-//Preorder ----- NLR
+// Preorder ----- NLR
 
-//PostOrder ---- LRN
+// PostOrder ---- LRN
