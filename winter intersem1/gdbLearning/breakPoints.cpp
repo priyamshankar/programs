@@ -20,3 +20,7 @@ int main()
     someFnc(j);
     return 0;
 }
+
+// g++ -g breakPoints.cpp -o breakPoints            
+
+// g++ -g -Wall breakPoints.cpp -o breakPoints   for all warnings
