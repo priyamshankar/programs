@@ -9,5 +9,6 @@ public class pattern {
             System.out.print(i * i+",");
         }
         System.out.print(1.645);
+        // System.out.print(1.645);
     }
 }

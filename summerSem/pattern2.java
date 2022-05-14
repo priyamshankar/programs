@@ -9,8 +9,8 @@ public class pattern2 {
         int n = scan.nextInt();
         System.out.println(6);
         for (int i = 5; i <= n; i=i+5) {
-        System.out.println(x+i);
-        x=x+i;
+            x=x+i;
+            System.out.println(x);
         }
         System.out.print(1.645);
     }
