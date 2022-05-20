@@ -7,18 +7,19 @@ using namespace std;
 
 class Solution
 {
-    // int x;
+    int x=0;
 public:
     int josephus(int n, int k)
     {
         // Your code here
-        if (k >= 0)
+        if (k <= 0)
         {
             return n;
         }
-        int x;
+        // int x;
+        x++;
         josephus(--n, --k);
-        return k;
+        return x+1;
     }
 };
 
