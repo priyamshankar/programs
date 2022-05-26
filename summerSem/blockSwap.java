@@ -46,7 +46,7 @@ public class blockSwap {
             swap(arr, i, d, n - d);
             leftRotateRec(arr, n - d + i, 2 * d - n, d); /* This is tricky */
         }
-    }==--
+    }
 
     public static void printArray(int arr[], int size) {
         int i;
