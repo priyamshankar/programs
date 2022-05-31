@@ -30,7 +30,7 @@ public class permutation {
     }
 
     public static void main(String[] args) {
-        char str[] = { 'A', 'B', 'C' };
+        char str[] = { '3', '2', 'B','A','H', 'I','N','C','H','O','D', 'P', 'R', 'I', 'Y', 'A', 'M' };
         int n = str.length;
         findPermutations(str, 0, n);
     }
