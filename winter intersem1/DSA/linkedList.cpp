@@ -41,6 +41,7 @@ void insertatPos(int data, node *&head, int pos)
     {
         temp = temp->next;
         count++;
+        // showing papa
     }
     n->next = temp->next;
     temp->next = n;
