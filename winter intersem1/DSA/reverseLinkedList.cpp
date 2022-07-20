@@ -92,14 +92,14 @@ void reverse(node *&head)
     node *current = head;
     node *prev = NULL;
     node *forward = NULL;
-    while (current != NULL)
-    {
-        forward = current->next;
-        current->next = prev;
-        prev = current;
-        current = forward;
-    }
-    head=prev;
+    // while (current != NULL)
+    // {
+    //     forward = current->next;
+    //     current->next = prev;
+    //     prev = current;
+    //     current = forward;
+    // }
+    // head=prev;
 }
 
 int main()
