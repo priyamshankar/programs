@@ -1,4 +1,5 @@
-#include <iostream>
+// #include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 class node
@@ -68,17 +69,35 @@ void postOrder(node *&root)
     return;
 }
 
+int height(node *&root, int &h, int &hmax)
+{
+    if (root->data == -1 || root == NULL)
+    {
+        h = h - 1;
+        return hmax;
+    }
+    height(root->left, h = h + 1,hmax);
+    height(root->right, h = h + 1,hmax);
+    // cout << h << "  ";
+    hmax=max(h,hmax);
+    h = h - 1;
+    return hmax;
 
+    // return;
+}
 
 int main()
 {
     node *root = NULL;
     putData(root);
-    display(root);
-    cout << endl;
-    inorder(root);
-    cout << endl;
-    postOrder(root);
+    // display(root);
+    // cout << endl;
+    // inorder(root);
+    // cout << endl;
+    // postOrder(root);
+    int h = 1;
+    int hMax = 0;
+    cout<<"\nmax height of the binary tree is "<<height(root, h, hMax);
     return 0;
-    // 1 2 -1 -1 3 4 5 -1 -1 -1 6 -1 -1
+    // 1 2 -1 -1 3 4 5 -1 -1 -1 6 -1 7 -1 8 9 -1 -1 -1 -1
 }
