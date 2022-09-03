@@ -10,28 +10,54 @@ using namespace std;
 class Solution
 {
 public:
+    bool ansFnc(vector<int> cook, int elem, int l, int n)
+    {
+        int nos = 0;
+        for (int i = 0; i < l; i++)
+        {
+            int prefix_sum = cook[i];
+            // cout << prefix_sum;
+            int timer = elem;
+            while (timer >= 0)
+            {
+                timer -= prefix_sum;
+                // cout<<timer<<endl;
+                if (timer >= 0)
+                {
+                    nos++;
+                    prefix_sum += cook[i];
+                    // cout<<prefix_sum<<endl;
+                }
+                // cout<<endl;
+                // cout<<timer<<endl;
+            }
+        }
+        // cout<<nos<<endl;
+        if (nos >= n)
+            return true;
+        return false;
+    }
     int findMinTime(int N, vector<int> &A, int L)
     {
-        // write your code here
-        int times = 1;
-        int count = 0;
-        while (count <= N)
+        int l = 0;
+        int r = 1e9;
+        int ans = 0;
+        while (l < r)
         {
-            for (int i = 0; i < L; i++)
+            
+            int mid = (l + r) / 2;
+            // cout<<l<<"-"<<r<<"-"<<mid<<endl;
+            if (ansFnc(A, mid, L, N))
             {
-                if (times % A[i] == 0)
-                {
-                    count++;
-                    // cout<<count<<endl;
-                }
-                if(count==N)break;
-                cout<<i<<" "<<count<<endl;
+                ans=mid;
+                r = mid;
             }
-            if (count==N)break;
-            cout<<"new line\n";
-            times++;
+            else
+                l = mid + 1;
+
+            
         }
-        return times;
+        return ans;
     }
 };
 
