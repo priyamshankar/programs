@@ -15,17 +15,20 @@ public:
         // write your code here
         int times = 1;
         int count = 0;
-        while (count != N)
+        while (count <= N)
         {
             for (int i = 0; i < L; i++)
             {
                 if (times % A[i] == 0)
                 {
                     count++;
-                    // cout<<i<<"-"<<count;
+                    // cout<<count<<endl;
                 }
+                if(count==N)break;
+                cout<<i<<" "<<count<<endl;
             }
-
+            if (count==N)break;
+            cout<<"new line\n";
             times++;
         }
         return times;
