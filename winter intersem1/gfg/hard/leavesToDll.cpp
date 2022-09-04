@@ -92,38 +92,28 @@ void inOrder(Node *root)
     inOrder(root->right);
 }
 
-// } Driver Code Ends
-/*Complete the function below
-Node is as follows:
-struct Node{
-    int data;
-    Node *left,*right;
-
-    Node(int x){
-        data = x;
-        left = NULL;
-        right = NULL;
-    }
-};
-*/
 // return the head of the DLL and remove those node from the tree as well.
 
-// 1 2 3 4 5 N N
+// 1 2 3 4 5 N N tc's
 
 int nodes(Node *root, Node *&dll)
 {
+    if(root==NULL)return 0;
     if (root->left == NULL && root->right == NULL)
     {
         Node *tempDll = new Node(root->data);
         if (dll == NULL)
         {
             dll = tempDll;
+            cout << "testcasedll\n";
         }
         else
         {
             tempDll->left = dll;
             dll->right = tempDll;
             dll = dll->right;
+            cout << "testcasedrr\n";
+            // dll=tempDll;
         }
         return 1;
     }
@@ -140,9 +130,11 @@ Node *convertToDLL(Node *root)
 {
     // add code here.
     Node *dll = NULL;
-    Node *temp = dll;
     nodes(root, dll);
-    return temp;
+    while (dll->left != NULL)
+        dll = dll->left;
+
+    return dll;
 }
 
 //{ Driver Code Starts.
