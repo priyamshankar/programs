@@ -1,9 +1,11 @@
+//substring
+
 #include <iostream>
 #include <string>
 using namespace std;
 string arr[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 
-void substr(string s, string ansStr)
+void substrng(string s, string ansStr)
 {
     if (s.length() == 0)
     {
@@ -18,8 +20,8 @@ void substr(string s, string ansStr)
         }
         return;
     }
-    substr(s.substr(1), ansStr);
-    substr(s.substr(1), ansStr + s[0]);
+    substrng(s.substr(1), ansStr);
+    substrng(s.substr(1), ansStr + s[0]);
 }
 
 int main()
@@ -29,5 +31,6 @@ int main()
     cin >> s;
     string ansStr = {};
     //   cout<<s.length();
-    substr(s, ansStr);
+    substrng(s, ansStr);
+    return 0;
 }
