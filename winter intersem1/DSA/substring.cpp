@@ -9,7 +9,7 @@ void substrng(string s, string ansStr)
 {
     if (s.length() == 0)
     {
-        cout<<ansStr<<endl;
+        // cout<<ansStr<<endl;
         for (int i = 0; i < 10; i++)
         {
             // if (ansStr == arr[i])
@@ -20,6 +20,7 @@ void substrng(string s, string ansStr)
         return;
     }
     substrng(s.substr(1), ansStr);
+    cout<<ansStr<<endl;
     substrng(s.substr(1), ansStr + s[0]);
 }
 

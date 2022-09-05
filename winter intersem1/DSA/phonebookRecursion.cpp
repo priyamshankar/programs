@@ -26,6 +26,6 @@ void recursion(string no, string ans)
 
 int main()
 {
-    recursion("23", "");
+    recursion("237", "");
     return 0;
 }
