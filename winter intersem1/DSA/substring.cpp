@@ -3,20 +3,19 @@
 #include <iostream>
 #include <string>
 using namespace std;
-string arr[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+// string arr[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 
 void substrng(string s, string ansStr)
 {
     if (s.length() == 0)
     {
-        // cout<<ansStr<<endl;
+        cout<<ansStr<<endl;
         for (int i = 0; i < 10; i++)
         {
-            if (ansStr == arr[i])
-            {
-                cout << i;
-                // cout<<"1";
-            }
+            // if (ansStr == arr[i])
+            // {
+            //     cout << i;
+            // }
         }
         return;
     }
@@ -32,5 +31,6 @@ int main()
     string ansStr = {};
     //   cout<<s.length();
     substrng(s, ansStr);
+    cout<<ansStr;
     return 0;
 }

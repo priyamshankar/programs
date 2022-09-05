@@ -13,7 +13,7 @@ void permutation(string str, string ans)
 
     for (int i = 0; i < str.length(); i++)
     {
-        char ch = str[i];
+        // char ch = str[i];
         // cout << ch << endl;
         string ros = str.substr(0, i) + str.substr(i + 1);
 
@@ -24,5 +24,7 @@ void permutation(string str, string ans)
 int main()
 {
     permutation("abc", "");
+    // string str="abcdefghi";
+    // cout<<str.substr(0,0)<<str.substr(1);
     return 0;
 }
